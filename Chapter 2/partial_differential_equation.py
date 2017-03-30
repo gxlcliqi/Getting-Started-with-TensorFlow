@@ -1,10 +1,8 @@
 #Import libraries for simulation
 import tensorflow as tf
 import numpy as np
-from pde_lib import *
+import matplotlib.pyplot as plt
 
-
-  
 def make_kernel(a):
   """Transform a 2D array into a convolution kernel"""
   a = np.asarray(a)
@@ -64,7 +62,7 @@ step = tf.group(
   Ut.assign(Ut_))
 
 # Initialize state to initial conditions
-tf.initialize_all_variables().run()
+tf.global_variables_initializer().run()
 
 # Run 1000 steps of PDE
 for i in range(1000):
@@ -72,7 +70,6 @@ for i in range(1000):
   step.run({eps: 0.03, damping: 0.04})
   # Visualize every 50 steps
   if i % 500 == 0:
-      clear_output()
       plt.imshow(U.eval())
       plt.show()
 

@@ -11,7 +11,7 @@ with sess.as_default():
         for j in range(1,trials):
             if x.eval()**2 + y.eval()**2 < 1 :
                 hits = hits + 1
-        print (4 * float(hits) / i)/trials  
+        print((4 * float(hits) / i)/trials)
 
 
 

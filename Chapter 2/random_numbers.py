@@ -5,13 +5,14 @@ import matplotlib.pyplot as plt
 # 0 and standard deviation 2.
 norm = tf.random_normal([100], mean=0, stddev=2)
 with tf.Session() as session:
+    print(norm.eval())
     plt.hist(norm.eval(),normed=True)
     plt.show()  
 
 
-uniform = tf.random_uniform([100],minval=0,maxval=1,dtype=tf.float32)
+uniform = tf.random_uniform([100],minval=0,maxval=2,dtype=tf.float32)
 with tf.Session() as session:
-    print uniform.eval()
+    print(uniform.eval())
     plt.hist(uniform.eval(),normed=True)
     plt.show() 
 
